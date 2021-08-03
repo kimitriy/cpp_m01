@@ -1,15 +1,10 @@
 #include "HumanB.hpp"
 
-//default constructor
-HumanB::HumanB()
-{
-	m_name = "\0";
-}
-
 //constructor
 HumanB::HumanB( const std::string &name )
+	: m_name(name)
 {
-	m_name = name;
+	
 }
 
 //destructor
@@ -27,19 +22,19 @@ const std::string HumanB::toUpperCase(const std::string &str)
 
 	while(str[i])
 	{
-		tmp[i] = static_cast<char>(toupper(str[i]));
+		tmp.push_back( static_cast<char>(toupper(str[i])) );
 		i++;
 	}
 	return (tmp);
 }
 
 //public
-void	HumanB::setWeapon( const Weapon &wpn )
+void	HumanB::setWeapon( Weapon &wpn )
 {
-	m_weapon = wpn;
+	m_weapon = &wpn;
 }
 
 void	HumanB::attack( void )
 {
-	std::cout << FGRND_B_PURPLE << m_name << FGRND_R_GREEN << " attacks with his " << FGRND_B_PURPLE << m_weapon.getType() << RESET << std::endl;
+	std::cout << FGRND_B_PURPLE << toUpperCase(m_name) << FGRND_R_GREEN << " attacks with his " << FGRND_B_PURPLE << toUpperCase(m_weapon->getType()) << RESET << std::endl;
 }

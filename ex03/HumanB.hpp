@@ -3,19 +3,18 @@
 class HumanB
 {
 	private:
-		Weapon		m_weapon;
+		Weapon		*m_weapon;
 		std::string	m_name;
 
 		const std::string toUpperCase(const std::string &str);
 	public:
 		//constructor
-		HumanB();
 		HumanB( const std::string &name );
 		
 		//destructor
-		~HumanB();
+		~HumanB( void );
 
 		//m-methods
-		void	setWeapon( const Weapon &wpn );
+		void	setWeapon( Weapon &wpn );
 		void	attack( void );
 };

@@ -1,15 +1,10 @@
 #include "Weapon.hpp"
 
-//default constructor
-Weapon::Weapon( void )
-{
-	m_type = "\0";
-}
-
 //constructor
 Weapon::Weapon( const std::string &type )
+	: m_type(type)
 {
-	m_type = type;
+	// m_type = type;
 }
 
 //destructor

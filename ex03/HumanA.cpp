@@ -1,16 +1,10 @@
 #include "HumanA.hpp"
 
-//default constructor
-HumanA::HumanA()
-{
-	m_name = "\0";
-}
-
 //constructor
 HumanA::HumanA( const std::string &name, Weapon &wpn )
+	: m_weapon(wpn), m_name( name )
 {
-	m_weapon = Weapon(wpn);
-	m_name = name;
+	
 }
 
 //destructor
@@ -28,7 +22,7 @@ const std::string HumanA::toUpperCase(const std::string &str)
 
 	while(str[i])
 	{
-		tmp[i] = static_cast<char>(toupper(str[i]));
+		tmp.push_back( static_cast<char>(toupper(str[i])) );
 		i++;
 	}
 	return (tmp);
@@ -37,5 +31,5 @@ const std::string HumanA::toUpperCase(const std::string &str)
 //public
 void	HumanA::attack( void )
 {
-	std::cout << FGRND_B_PURPLE << m_name << FGRND_R_GREEN << " attacks with his " << FGRND_B_PURPLE << m_weapon.getType() << RESET << std::endl;
+	std::cout << FGRND_B_PURPLE << toUpperCase(m_name) << FGRND_R_GREEN << " attacks with his " << FGRND_B_PURPLE << toUpperCase(m_weapon.getType()) << RESET << std::endl;
 }

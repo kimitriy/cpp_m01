@@ -40,7 +40,7 @@ class Weapon
 		std::string m_type;
 	public:
 		//constructor
-		Weapon( void );
+		// Weapon( void );
 		Weapon( const std::string &type );
 		
 		//destructor
