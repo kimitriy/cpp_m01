@@ -3,7 +3,6 @@
 
 # include <iostream>
 # include <string>
-# include <iomanip>
 # include <fstream>
 
 # define RESET "\033[0m"
@@ -35,24 +34,4 @@
 # define BGRND_CYAN "\033[7;36m"
 # define BGRND_WHITE "\033[7;37m"
 
-/*
-class Weapon
-{
-	private:
-		std::string m_type;
-	public:
-		//constructor
-		// Weapon( void );
-		Weapon( const std::string &type );
-		
-		//destructor
-		~Weapon( void );
-		
-		//setter
-		void	setType(const std::string &type);
-		
-		//getter
-		const std::string & getType( void );
-};
-*/
 #endif
