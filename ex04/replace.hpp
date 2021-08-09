@@ -4,6 +4,7 @@
 # include <iostream>
 # include <string>
 # include <iomanip>
+# include <fstream>
 
 # define RESET "\033[0m"
 
