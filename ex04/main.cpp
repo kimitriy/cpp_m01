@@ -10,7 +10,7 @@ int		validator(int argc, char **argv)
 {
 	if (argc != 4)
 		return (err_message("Wrong number of arguments."));
-	if (argv[1] == '\0' || argv[2] == '\0' || argv[3] == '\0')
+	if (argv[1] == "\0" || argv[2] == "\0" || argv[3] == "\0")
 		return (err_message("Arguments must not be empty."));
 	return (1);
 }
