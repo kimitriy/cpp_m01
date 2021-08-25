@@ -16,19 +16,20 @@ SRC 		= 	main.cpp
 
 OBJS		= ${SRC:.cpp=.o}
 
-CPP			= clang++
+CXX			= clang++
 
-FLAGS		= -g -Wall -Wextra -Werror -std=c++98
+CPPFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wshadow -Wno-shadow -I.
 
 RM			= rm -f
 
+.PHONY: all clean re
+
 all:		${NAME}
 
-.c.o:		
-				${CPP} ${FLAGS} -c $< -o ${<:.c=.o}
 
+${OBJS}: 		${HEADER}
 ${NAME}:		${OBJS}
-				${CPP} ${FLAGS} -o ${NAME} ${OBJS}
+				${CXX} ${CPPFLAGS} -o ${NAME} ${OBJS} 
 
 clean:
 		${RM} ${OBJS}
@@ -38,5 +39,3 @@ fclean:	clean
 		${RM} ${LIB}
 
 re:		fclean all
-
-.phony: all clean re
