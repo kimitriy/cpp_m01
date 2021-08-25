@@ -10,7 +10,7 @@ int		validator(int argc, char **argv)
 {
 	if (argc != 4)
 		return (err_message("Wrong number of arguments."));
-	if (argv[1] == "\0" || argv[2] == "\0" || argv[3] == "\0")
+	if (argv[1] == '\0' || argv[2] == '\0' || argv[3] == '\0')
 		return (err_message("Arguments must not be empty."));
 	return (1);
 }
@@ -31,7 +31,6 @@ const std::string	toUpperCase(const std::string &str)
 void	findAndReplace(std::string &text, std::string &str1, std::string &str2)
 {
 	int			len = str1.length();
-	int			i = 0;
 	
 	if (str1.compare(str2) == 0) //if str1 == str2 there is no point to do anything but just to output text without any changes at all
 		return ;
