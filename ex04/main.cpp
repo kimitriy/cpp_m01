@@ -30,23 +30,23 @@ const std::string	toUpperCase(const std::string &str)
 
 void	findAndReplace(std::string &text, std::string &str1, std::string &str2)
 {
-	int			len = str1.length();
+	std::size_t	len = str1.length();
 	
-	if (str1.compare(str2) == 0) //if str1 == str2 there is no point to do anything but just to output text without any changes at all
+	if (str1.compare( str2 ) == 0) //if str1 == str2 there is no point to do anything but just to output text without any changes at all
 		return ;
 	else
 	{
-		std::size_t found = text.find(str1);
+		std::size_t found = text.find( str1 );
 		while (found != std::string::npos) //std::string::npos is what std::str.find() returns if no matches found
 		{
-			text.erase(found, len);
-			text.insert(found, str2);
-			found = text.find(str1); //iterates through matches of str1 in text
+			text.erase( found, len );
+			text.insert( found, str2 );
+			found += str2.length();
+			found = text.find( str1, found ); //shifts position found to str2.length() symbols and iterates through matches of str1 in text
 		}
 	}
 	return ;
 }
-
 
 void	processFile(std::ifstream & ifs, std::ofstream & ofs, std::string &str1, std::string &str2)
 {
@@ -54,8 +54,8 @@ void	processFile(std::ifstream & ifs, std::ofstream & ofs, std::string &str1, st
 	
 	while (ifs)
 	{
-		getline(ifs, tmp);
-		findAndReplace(tmp, str1, str2);
+		getline( ifs, tmp );
+		findAndReplace( tmp, str1, str2 );
 		ofs << tmp << std::endl;
 		if (ifs.eof()) //if EndOfFile has reached then break while
 			break ;
